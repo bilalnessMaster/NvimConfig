@@ -30,6 +30,26 @@ return {
     end,
  },
 
+{
+  "echasnovski/mini.surround",
+  version = "*",
+  event = "VeryLazy",
+  config = function()
+    require("mini.surround").setup({
+      mappings = {
+        add = 'sa',         -- Add surrounding
+        delete = 'sd',      -- Delete surrounding
+        replace = 'sr',     -- Replace surrounding
+        find = 'sf',        -- Find to the right
+        find_left = 'sF',   -- Find to the left
+        highlight = 'sh',   -- Highlight surrounding
+        update_n_lines = 'sn',
+        suffix_last = 'l',
+        suffix_next = 'n',
+      }
+    })
+  end,
+},
  "nvchad/volt", -- optional, needed for theme switcher
  -- or just use Telescope themes 
   -- test new blink
