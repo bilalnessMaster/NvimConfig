@@ -4,7 +4,11 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
+{ 'gen740/SmoothCursor.nvim',
+  config = function()
+    require('smoothcursor').setup()
+  end
+},
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -30,7 +34,13 @@ return {
     end,
  },
 
-{
+ {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
+ },
+ {
   "echasnovski/mini.surround",
   version = "*",
   event = "VeryLazy",
