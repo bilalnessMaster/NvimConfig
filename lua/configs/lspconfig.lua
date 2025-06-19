@@ -40,14 +40,50 @@ require("lspconfig").solargraph.setup({})
 require("lspconfig").ts_ls.setup({})
 require("lspconfig").gopls.setup({})
 require("lspconfig").tailwindcss.setup({})
+
 require("lspconfig").emmet_ls.setup({
   filetypes = {
-    "html", "css", "scss", "javascript", "javascriptreact", "typescriptreact"
+    "html", "php", "css", "scss", "javascript", "javascriptreact", 
+    "typescriptreact", "blade", "vue", "svelte", -- add all file types where you want emmet
   },
+
   init_options = {
-    html = {
-      options = {
-        ["bem.enabled"] = true,
+    -- Extended Emmet options
+    preferences = {
+      tabSize = 4, -- match your tab settings
+      showExpandedAbbreviation = "always",
+      showAbbreviationSuggestions = true,
+      syntaxProfiles = {
+        blade = "html", -- treat blade files as html for emmet
+      },
+      variables = {
+        lang = "en",
+        charset = "UTF-8",
+      },
+    },
+    -- Enable all Emmet features
+    includeLanguages = {
+      ["html"] = "html",
+      ["php"] = "html",
+      ["blade"] = "html",
+    },
+    -- Enable more expansions
+    expansions = {
+      ["html"] = {
+        "a", "abbr", "address", "area", "article", "aside", "audio", "b", "base",
+        "bdi", "bdo", "blockquote", "body", "br", "button", "canvas", "caption",
+        "cite", "code", "col", "colgroup", "data", "datalist", "dd", "del", "details",
+        "dfn", "dialog", "div", "dl", "dt", "em", "embed", "fieldset", "figcaption",
+        "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head", "header",
+        "hgroup", "hr", "html", "i", "iframe", "img", "input", "ins", "kbd", "label",
+        "legend", "li", "link", "main", "map", "mark", "meta", "meter", "nav", "noscript",
+        "object", "ol", "optgroup", "option", "output", "p", "param", "picture", "pre",
+        "progress", "q", "rp", "rt", "ruby", "s", "samp", "script", "section", "select",
+        "small", "source", "span", "strong", "style", "sub", "summary", "sup", "svg",
+        "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time",
+        "title", "tr", "track", "u", "ul", "var", "video", "wbr",
+        -- Custom components you use frequently
+        "x-main", "x-slot", "x-app-layout", "x-guest-layout",
       },
     },
   },

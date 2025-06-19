@@ -4,11 +4,27 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-{ 'gen740/SmoothCursor.nvim',
+  { 
+  'gen740/SmoothCursor.nvim',
   config = function()
     require('smoothcursor').setup()
   end
-},
+  },
+  {
+  'windwp/nvim-ts-autotag',
+  config = function()
+    require('nvim-ts-autotag').setup({
+      filetypes = {
+        'html', 'javascript', 'typescript', 'javascriptreact', 
+        'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'php', 'blade',
+      },
+      skip_tags = {
+        'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'input',
+        'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'menuitem'
+      },
+    })
+  end
+  }, 
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
